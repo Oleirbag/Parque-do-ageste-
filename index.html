@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parque do Agreste</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5faff; color: #333; }
+    header {
+      background: url('https://images.unsplash.com/photo-1562774053-701939374585') no-repeat center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 { margin: 0; font-size: 48px; }
+    header p { font-size: 18px; margin-top: 10px; }
+    nav { display: flex; justify-content: center; background: #cce7d0; }
+    nav button {
+      background: none; border: none; padding: 16px 20px;
+      font-size: 16px; cursor: pointer;
+    }
+    nav button:hover { background: #b5dfbe; }
+    section { display: none; padding: 30px 20px; max-width: 1000px; margin: auto; }
+    section.active { display: block; }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: #e5f7ee;
+    }
+    th, td {
+      border: 1px solid #999; padding: 10px;
+      text-align: center;
+    }
+    form input, form select, form textarea, form button {
+      width: 100%; padding: 10px; margin: 8px 0;
+      border: 1px solid #999; border-radius: 4px;
+    }
+    form button {
+      background: #4caf50; color: white;
+      border: none; cursor: pointer;
+    }
+    form button:hover { background: #45a049; }
+    .dica-item {
+      display: flex; align-items: flex-start;
+      margin: 15px 0;
+    }
+    .dica-item img { width: 50px; height: 50px; margin-right: 15px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PARQUE DO AGRESTE</h1>
+    <p>Um projeto de extensão para ajudar as famílias da comunidade a escolher horários seguros para usar a praça e os equipamentos de lazer, evitando horários relacionados ao tráfico de drogas.</p>
+  </header>
+
+  <nav>
+    <button onclick="mostrar('horarios')">Horários Seguros</button>
+    <button onclick="mostrar('dicas')">Dicas de Saúde</button>
+    <button onclick="mostrar('comunidade')">Área da Comunidade</button>
+  </nav>
+
+  <section id="horarios" class="active">
+    <h2>Horários Seguros</h2>
+    <div class="content-grid">
+      <div>
+        <table>
+          <tr><th></th><th>Caminhada</th><th>Quadra</th></tr>
+          <tr><td>Horários Seguros</td><td>6:00–8:00, 17:00–19:00</td><td>7:00–10:00, 18:00–20:00</td></tr>
+          <tr><td>Horários de Risco</td><td>10:00–16:00, 20:00–22:00</td><td>11:00–17:00, 21:00–23:00</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Organize Seu Evento</h3>
+        <p>Quer organizar uma caminhada em grupo ou um jogo de society? Escolha um horário e deixe seu convite aqui para quem quiser participar!</p>
+        <form>
+          <input type="text" placeholder="Seu nome" required>
+          <select required>
+            <option value="">Tipo de Atividade</option>
+            <option>Society</option>
+            <option>Caminhada</option>
+            <option>Outro</option>
+          </select>
+          <input type="date" required>
+          <input type="time" required>
+          <textarea placeholder="Mensagem (opcional)"></textarea>
+          <button type="submit">Publicar convite</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="dicas">
+    <h2>Dicas de Saúde</h2>
+    <div class="dica-item">
+      <img src="https://img.icons8.com/color/96/stretching.png" alt="Alongamento">
+      <p><strong>Alongue-se antes e depois da caminhada:</strong> previne lesões e melhora a mobilidade.</p>
+    </div>
+    <div class="dica-item">
+      <img src="https://img.icons8.com/color/96/water-bottle.png" alt="Hidratação">
+      <p><strong>Hidrate-se bem:</strong> beba água antes, durante e depois das atividades físicas.</p>
+    </div>
+    <div class="dica-item">
+      <img src="https://img.icons8.com/color/96/t-shirt.png" alt="Roupas Leves">
+      <p><strong>Use roupas leves:</strong> para melhor conforto e transpiração adequada.</p>
+    </div>
+    <div class="dica-item">
+      <img src="https://img.icons8.com/color/96/fruit.png" alt="Alimentação leve">
+      <p><strong>Prefira lanches leves:</strong> frutas e sucos antes dos exercícios ajudam na energia.</p>
+    </div>
+    <div class="dica-item">
+      <img src="https://img.icons8.com/color/96/group.png" alt="Grupo">
+      <p><strong>Pratique em grupo:</strong> aumenta a segurança e deixa o momento mais divertido.</p>
+    </div>
+  </section>
+
+  <section id="comunidade">
+    <h2>Área da Comunidade</h2>
+    <p>Conte pra gente quais horários você considera mais seguros e compartilhe suas ideias para melhorar o uso da praça!</p>
+    <textarea rows="5" placeholder="Deixe sua sugestão aqui..."></textarea>
+    <button style="margin-top:10px; padding: 10px 20px;">Enviar sugestão</button>
+  </section>
+
+  <script>
+    function mostrar(secao) {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(secao).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
